@@ -1,0 +1,30 @@
+library(dplyr)
+library(ggplot2)
+library(plotly)
+
+df <- read.csv("C:\\Users\\ginat\\Downloads\\depression_data.csv")
+
+summary(df)
+
+depression <- df %>%
+  select("Age","Employment.Status","Income", "Number.of.Children", "Marital.Status", "Family.History.of.Depression"
+  )
+
+summary(depression)
+
+depression <- depression %>%
+  rename(employment = Employment.Status,
+         marriage = Marital.Status, 
+         num_children = Number.of.Children, 
+         fam_depression = Family.History.of.Depression
+         )
+
+depression <- na.omit(depression)
+
+marriage_plot <- ggplot(depression, aes(x = marriage, fill = fam_depression)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Marriage and Family History of Depression", x = "Employment", y = "Count", fill = "Family Depression History") +
+  theme_minimal()
+
+marriage_interactive <- ggplotly(marriage_plot)
+marriage_interactive
