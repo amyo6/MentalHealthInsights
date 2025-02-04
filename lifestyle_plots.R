@@ -25,9 +25,8 @@ avg_habits <- data_long %>%
   group_by(Age_Group, Habit) %>%
   summarize(Average_Unhealthy = mean(Unhealthy))
 
-lifestyle_plot <- ggplot(avg_habits, aes(x = Age_Group, y = Average_Unhealthy, color = Habit, group = Habit)) +
-  geom_line(linewidth = 1) +
-  geom_point(size = 3) +
+lifestyle_plot <- ggplot(avg_habits, aes(x = Age_Group, y = Average_Unhealthy, fill = Habit)) +
+  geom_bar(stat = "identity", position = "dodge") +
   scale_y_continuous(limits = c(0,1)) + 
   labs(
     title = "Unhealthy Lifestyle Habits Across Age Groups",
