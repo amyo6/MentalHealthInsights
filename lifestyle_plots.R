@@ -2,7 +2,7 @@ library("dplyr")
 library("tidyverse")
 library("ggplot2") 
 library("plotly")
-america <- read.csv("/Users/hallehwang/Desktop/depression_data.csv")
+america <- read.csv("/Users/hallehwang/Desktop/Healthcare-related/depression_data.csv")
 
 america$Age_Group <- cut(
   america$Age,
@@ -33,6 +33,6 @@ lifestyle_plot <- ggplot(avg_habits, aes(x = Age_Group, y = Average_Unhealthy, f
     x = "Age Group",
     y = "Average Unhealthy Habit (Proportion)",
     color = "Habit"
-  )
+  ) + theme(axis.text.x = element_text(angle = 45, hjust=1, size=6))
 
 ggplotly(lifestyle_plot)
