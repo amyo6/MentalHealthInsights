@@ -1,4 +1,4 @@
 This visualization displays depression rates among college students in the USA, based on self-reported survey data. 
 The dataset includes students age, year of study, and depression status. Depression rates are calculated as the percentage of students who reported experiencing depression at each age. 
-The interactive plot allows users to explore trends, with options to view the data as a **scatter plot or line plot. 
+The interactive plot allows users to explore trends, with options to view the data as a scatter plot or line plot. 
 This analysis helps highlight patterns in mental health among students, offering insights into age-related trends in depression.
