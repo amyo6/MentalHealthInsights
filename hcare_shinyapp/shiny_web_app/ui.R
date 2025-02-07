@@ -9,6 +9,68 @@ library(tidyverse)
 
 # Define UI
 ui <- fluidPage(
+  
+  tags$head(
+    tags$style(HTML("
+      body {
+      font-family: 'Helvetica';
+      background-color: #e3f2fd;  
+      }
+      
+      .nav-tabs > li > a {
+        background-color: #1565c0;  
+        color: white;
+        font-weight: bold;
+        border: 1px solid #1565c0;
+        border-bottom: none;
+        border-radius: 8px 8px 0 0;
+        margin-right: 5px;
+      }
+      
+      .nav-tabs > li.active > a, 
+      .nav-tabs > li.active > a:focus, 
+      .nav-tabs > li.active > a:hover {
+        background-color: white;  
+        color: #1565c0; 
+        border: 1px solid #1565c0;
+        border-bottom: 1px solid white;
+      }
+      
+      .nav-tabs > li > a:hover {
+        background-color: #1e88e5; 
+        color: white;
+      }
+      
+      .tab-content {
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #1565c0;
+        border-radius: 0 0 8px 8px;
+      }
+      
+      h3, h4, p, li {
+        color: #0d47a1;
+      }
+      
+      .well, .panel {
+        background-color: #e3f2fd !important;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      
+      .btn, .selectize-input {
+        background-color: #1565c0 !important;
+        color: white !important;
+        border: none;
+      }
+      
+      .btn:hover, .selectize-input:hover {
+        background-color: #0d47a1 !important;
+      }
+    "))
+  ),
+  
+  
   titlePanel("US Data Visualizations"),
   
   tabsetPanel(
@@ -21,6 +83,9 @@ ui <- fluidPage(
             Mental health, particularly depression, is a growing concern that affects individuals across all age groups, but young adults—especially college students—are at a crucial stage where decisions around factors such as physical activity, diet, relationships, and coping mechanisms can significantly shape their mental well-being."),
                       p("We present a series of visualizations, including plots on college student depression, lifestyle habits, marriage, the connection between music and mental health, and US-wide distribution of depression rates. 
             Our goal is to inform young adults about the various factors related to depression in the United States and encourage proactive steps to safeguard their mental health."),
+                      tags$img(src = "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa984c250-26fc-42ea-a82f-eab67a7f828e_1200x675.jpeg",
+                               width = "75%", height = "75%"),
+                      tags$p("The Connell Waldron from Normal People uni experience"),
                       h4("We chose to explore the following questions:"),
                       tags$ul(
                         tags$li("What trends in lifestyle habits are observed in individuals suffering from depression?"),
@@ -28,10 +93,14 @@ ui <- fluidPage(
                         tags$li("What is the relationship between depression, marital status, and the number of children?"),
                         tags$li("What are the depression rates among college students?"),
                         tags$li("How are music and mental health related?")
-                      )
+                        )
                )
              )
     ),
+    
+    
+    
+    
     tabPanel("Depression & Housing",
              sidebarLayout(
                sidebarPanel(
